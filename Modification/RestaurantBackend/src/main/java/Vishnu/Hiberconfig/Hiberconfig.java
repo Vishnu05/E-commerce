@@ -1,4 +1,4 @@
-   package Vishnu.Hiberconfig;
+    package Vishnu.Hiberconfig;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -33,10 +33,11 @@ public class Hiberconfig
 	public DataSource getH2DataSource()
 	{
 		DriverManagerDataSource driverMgrDataSource=new DriverManagerDataSource();
-		driverMgrDataSource.setDriverClassName("org.h2.Driver");
-		driverMgrDataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
-		driverMgrDataSource.setUsername("sa");
-		driverMgrDataSource.setPassword("");
+		driverMgrDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		driverMgrDataSource.setUrl("jdbc:mysql://localhost:3306/vishnu?useSSL=false");
+		
+		driverMgrDataSource.setUsername("root");
+		driverMgrDataSource.setPassword("admin");
 		return driverMgrDataSource;
 	}
 	 
@@ -45,7 +46,7 @@ public class Hiberconfig
 	{
 		Properties hibernateProperties=new Properties();
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto","update");
-		hibernateProperties.put("hibernate.dialect","org.hibernate.dialect.H2Dialect");
+		hibernateProperties.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
 		
 		LocalSessionFactoryBuilder localSessionFacBuilder=new LocalSessionFactoryBuilder(getH2DataSource());
 		localSessionFacBuilder.addProperties(hibernateProperties);
