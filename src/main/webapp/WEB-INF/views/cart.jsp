@@ -123,7 +123,7 @@ function update_amounts() {
 								<div class="row">
 									
 									<div class="col-sm-10">
-									    <h3 class="hidden" id="iid"> ${cartitem.citemid}</h3>
+									    <h3 class="hidden" id="iid"> ${cartitem.carItemId}</h3>
 										<h4 class="nomargin" id="pn">${cartitem.productName}</h4>
 									</div>
 								</div>
@@ -147,7 +147,7 @@ function update_amounts() {
 							 </td>
 							<td data-th="Subtotal" class="text-center" id="amount"><span id="subtotal" class="subtotal"><i class="fa fa-inr" aria-hidden="true"></i>0</span></td>
 							<td class="actions" data-th="">
-								<a href=<c:url value="/deleteCartItem/${cartitem.citemid}"/> class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>	
+								<a href=<c:url value="/deleteCartItem/${cartitem.carItemId}"/> class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
 												
 							</td>
 							

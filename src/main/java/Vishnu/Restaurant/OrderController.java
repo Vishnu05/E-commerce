@@ -46,7 +46,7 @@ public class OrderController {
 		int grandtotal = sum;
 		OrderDetails norder = new OrderDetails();
 		norder.setSum(grandtotal);
-		norder.setCartit(ncar.getCartid());
+		norder.setCartit(ncar.getCartId());
 		norder.setQuantity(ncar.getQuantity());
 		norder.setProdname(ncar.getProductName());
 		norder.setUsername(username);

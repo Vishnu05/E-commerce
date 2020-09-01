@@ -14,9 +14,9 @@ import org.springframework.stereotype.Component;
 public class Cart implements Serializable {
     @Id
     @GeneratedValue
-    int citemid;
+    int carItemId;
     @Min(1)
-    int cartid;
+    int cartId;
     @Min(1)
     int productId;
     @Min(1)
@@ -26,20 +26,20 @@ public class Cart implements Serializable {
     @NotNull
     String username, productName, status;
 
-    public int getCitemid() {
-        return citemid;
+    public int getCarItemId() {
+        return carItemId;
     }
 
-    public void setCitemid(int citemid) {
-        this.citemid = citemid;
+    public void setCarItemId(int carItemId) {
+        this.carItemId = carItemId;
     }
 
-    public int getCartid() {
-        return cartid;
+    public int getCartId() {
+        return cartId;
     }
 
-    public void setCartid(int cartid) {
-        this.cartid = cartid;
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
     }
 
     public int getQuantity() {

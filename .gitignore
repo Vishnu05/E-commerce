@@ -1,7 +1,3 @@
-# project settings and IDE
-.idea/*
-.settings/*
-/target/*
-.classpath
-.project
 E-commerce.iml
+.idea
+target

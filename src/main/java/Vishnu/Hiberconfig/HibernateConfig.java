@@ -28,13 +28,13 @@ import Vishnu.Model.Product;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("Vishnu")
-public class Hiberconfig {
+public class HibernateConfig {
     @Autowired
     @Bean(name = "dataSource")
-    public DataSource getH2DataSource() {
+    public DataSource getDataSource() {
         DriverManagerDataSource driverMgrDataSource = new DriverManagerDataSource();
         driverMgrDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        driverMgrDataSource.setUrl("jdbc:mysql://localhost:3306/vishnu?useSSL=false");
+        driverMgrDataSource.setUrl("jdbc:mysql://localhost:3306/ecommerce?useSSL=false");
 
         driverMgrDataSource.setUsername("root");
         driverMgrDataSource.setPassword("admin");
@@ -44,10 +44,12 @@ public class Hiberconfig {
     @Bean(name = "sessionFactory")
     public SessionFactory getSessionFactory() {
         Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+
+        /** To create the database automatically we can use "create" instead of "update" */
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
         hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 
-        LocalSessionFactoryBuilder localSessionFacBuilder = new LocalSessionFactoryBuilder(getH2DataSource());
+        LocalSessionFactoryBuilder localSessionFacBuilder = new LocalSessionFactoryBuilder(getDataSource());
         localSessionFacBuilder.addProperties(hibernateProperties);
         localSessionFacBuilder.addAnnotatedClass(Register.class);
         localSessionFacBuilder.addAnnotatedClass(Category.class);

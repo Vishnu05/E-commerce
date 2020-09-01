@@ -20,7 +20,6 @@ import Vishnu.Dao.RegisterDao;
 import Vishnu.DaoImpl.CartDAOImpl;
 import Vishnu.Model.Cart;
 import Vishnu.Model.Product;
-import Vishnu.Model.Register;
 
 @Controller
 public class CartController {
@@ -40,7 +39,7 @@ public class CartController {
 		Cart cart=new Cart();
 		String username=(String)session.getAttribute("username");
 	//	Register u = userDAOImpl.getRegister(username);
-		cart.setCartid(1000);
+		cart.setCartId(1000);
 		cart.setStatus("N");
 		cart.setUsername(username);
 		System.out.println(productname);
